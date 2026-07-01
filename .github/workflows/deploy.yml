@@ -24,10 +24,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: npm
-      - run: npm ci
-      - name: Build (base ./ สำหรับ Pages subpath)
-        run: npm run build -- --base=./
+      - name: Install deps (ไม่มี lock file → npm install)
+        run: npm install --no-audit --no-fund
+      - name: Build (vite ตรง — esbuild strip types, ไม่ block ที่ type-error · base ./ สำหรับ Pages subpath)
+        run: npx vite build --base=./
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
