@@ -1,0 +1,39 @@
+{
+ "tk": "PTT",
+ "mkt": "TH",
+ "generated": true,
+ "asof": "2026-07-01 14:23",
+ "cur": "฿",
+ "name": "PTT",
+ "live": {
+  "target": 40.22,
+  "rating": "Buy",
+  "n": 18,
+  "bull": 100.0,
+  "buy": 14,
+  "hold": 4,
+  "sell": 0,
+  "upside": null
+ },
+ "flags": [
+  {
+   "ok": true,
+   "text": "Consensus = Buy (IAA) — Buy"
+  },
+  {
+   "ok": true,
+   "text": "Bullish ≥ 70% ของโบรก — 100.0%"
+  },
+  {
+   "ok": true,
+   "text": "Coverage ≥ 10 โบรก (ความเชื่อมั่นข้อมูล) — 18"
+  }
+ ],
+ "passed": 3,
+ "verdict": "consensus หนุน",
+ "research": {
+  "label": "Settrade — Analyst Consensus (PTT)",
+  "url": "https://www.settrade.com/th/equities/quote/PTT/analyst-consensus"
+ },
+ "note": "instant card (consensus ไทยสด) · fundamentals (PE/DE) ดูหน้า Settrade · บทวิเคราะห์เต็มเติมด้วย AI ได้"
+}

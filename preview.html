@@ -61,6 +61,23 @@
       </div>
     </div>
 
+    <!-- วิเคราะห์หุ้นรายตัว (ใส่ ticker เอง) -->
+    <div class="card" style="margin-bottom:18px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+        <span class="brand" style="font-weight:700;font-size:16px;color:#f0f1f4;">🔍 วิเคราะห์หุ้นรายตัว</span>
+        <span style="font-size:11px;color:#71747e;">· พิมพ์ ticker → การ์ดสด (Amorn/JRT) · เต็มเชิงคุณภาพเติมด้วย AI</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0 6px;">
+        <input id="stkInput" placeholder="เช่น NVDA, AAPL, PTT, KBANK" onkeydown="if(event.key==='Enter')analyzeStock()"
+          style="flex:1;min-width:180px;background:#0d1016;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 14px;color:#f0f1f4;font-size:13px;outline:none;">
+        <select id="stkMkt" style="background:#0d1016;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 12px;color:#f0f1f4;font-size:13px;">
+          <option value="us">US</option><option value="th">TH</option>
+        </select>
+        <button onclick="analyzeStock()" style="cursor:pointer;background:rgba(124,108,240,.2);border:1px solid rgba(124,108,240,.5);border-radius:10px;padding:10px 20px;color:#c3b8fa;font-size:13px;font-weight:600;">วิเคราะห์</button>
+      </div>
+      <div id="stkResult" style="margin-top:10px;"></div>
+    </div>
+
     <!-- Top picks -->
     <div style="display:flex;align-items:center;gap:9px;margin-bottom:13px;flex-wrap:wrap;">
       <span class="brand" style="font-weight:700;font-size:16px;color:#f0f1f4;">หุ้นน่าสนใจวันนี้</span>
@@ -311,6 +328,56 @@ function openFull(key){
 }
 function sectionTitle(t){return '<div class="brand" style="font-weight:700;font-size:13.5px;color:#e0bd6f;margin:0 0 9px;">'+t+'</div>';}
 function closeFull(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('fullModal').style.display='none';document.body.style.overflow='';}
+
+// ── วิเคราะห์หุ้นรายตัว ──
+function mnum(v,suf){return (v===null||v===undefined)?'—':(v+(suf||''));}
+function analyzeStock(){
+  var tk=(document.getElementById('stkInput').value||'').trim().toUpperCase();
+  var mkt=document.getElementById('stkMkt').value;
+  var box=document.getElementById('stkResult');
+  if(!tk){box.innerHTML='';return;}
+  box.innerHTML='<div class="mono" style="font-size:11px;color:#8a8d96;padding:10px;">กำลังโหลด '+tk+'…</div>';
+  fetch('./data/stocks/'+tk+'.json?v='+Date.now()).then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(c){renderStockCard(c);})
+    .catch(function(){ box.innerHTML=notFoundHTML(tk,mkt); });
+}
+function notFoundHTML(tk,mkt){
+  var cmd='วิเคราะห์หุ้น '+tk+' ('+mkt.toUpperCase()+')';
+  return '<div style="background:#161a22;border:1px solid rgba(210,166,74,.3);border-radius:12px;padding:16px 18px;">'+
+    '<div style="font-size:12.5px;color:#e8c98a;margin-bottom:10px;">ยังไม่มีการ์ดของ <b>'+tk+'</b> — สร้างได้ 2 วิธี:</div>'+
+    '<div style="font-size:11.5px;color:#cfd1d6;line-height:1.7;">'+
+    '① <b>Instant (ข้อมูล+กฎ):</b> รันในเครื่อง <span class="mono" style="background:#0d1016;padding:2px 7px;border-radius:5px;color:#a3d8c0;">python engine/cfx_stock.py '+tk+' '+mkt+'</span><br>'+
+    '② <b>บทวิเคราะห์เต็ม (AI):</b> พิมพ์ใน Claude → <span class="mono" style="background:#0d1016;padding:2px 7px;border-radius:5px;color:#c3b8fa;">'+cmd+'</span></div>'+
+    '<button onclick="navigator.clipboard&&navigator.clipboard.writeText(\''+cmd+'\')" style="margin-top:12px;cursor:pointer;background:rgba(124,108,240,.16);border:1px solid rgba(124,108,240,.4);border-radius:8px;padding:7px 14px;color:#c3b8fa;font-size:11.5px;">📋 คัดลอกคำสั่ง AI</button></div>';
+}
+function renderStockCard(c){
+  var L=c.live||{},cur=c.cur||'';
+  var rc=/Buy/i.test(L.rating||'')?'#4ec98a':/Hold/i.test(L.rating||'')?'#d2a64a':/Sell/i.test(L.rating||'')?'#e0594e':'#9a9da6';
+  function cell(l,v){return '<div style="background:#14171e;border-radius:9px;padding:9px 6px;text-align:center;"><div class="mono" style="font-size:8.5px;color:#6b6e78;">'+l+'</div><div class="mono" style="font-size:13px;color:#f0f1f4;margin-top:2px;">'+v+'</div></div>';}
+  var cells = (c.mkt==='US')
+    ? cell('ราคา',cur+mnum(L.price))+cell('P/E',mnum(L.pe))+cell('PEG',mnum(L.peg))+cell('D/E',mnum(L.de))+cell('ROE',mnum(L.roe,'%'))+cell('เป้า',cur+mnum(L.target))+cell('Upside',mnum(L.upside,'%'))+cell('YTD',mnum(L.perfYtd,'%'))
+    : cell('Rating',L.rating||'—')+cell('เป้า',cur+mnum(L.target))+cell('โบรก',mnum(L.n))+cell('Bullish',mnum(L.bull,'%'))+cell('ซื้อ',mnum(L.buy))+cell('ถือ',mnum(L.hold))+cell('ขาย',mnum(L.sell))+cell('','');
+  var flags=(c.flags||[]).map(function(f){return '<div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;font-size:12px;color:'+(f.ok?'#cfd1d6':'#9a8884')+';"><span>'+(f.ok?'✅':'⛔')+'</span><span>'+f.text+'</span></div>';}).join('');
+  var vColor=(c.passed>=4)?'#4ec98a':(c.passed>=2)?'#d2a64a':'#e0594e';
+  var cmd='วิเคราะห์หุ้น '+c.tk+' ('+c.mkt+') แบบเต็ม';
+  document.getElementById('stkResult').innerHTML=
+    '<div style="background:#13161d;border:1px solid rgba(255,255,255,.09);border-radius:14px;overflow:hidden;">'+
+    '<div style="display:flex;align-items:center;gap:11px;padding:14px 18px;background:linear-gradient(135deg,rgba(124,108,240,.14),rgba(210,166,74,.06));border-bottom:1px solid rgba(255,255,255,.07);flex-wrap:wrap;">'+
+      '<span class="brand" style="font-size:19px;font-weight:800;color:#f0f1f4;">'+c.tk+'</span>'+
+      '<span style="font-size:11px;color:#8a8d96;">'+c.mkt+'</span>'+
+      '<span style="font-size:12px;font-weight:700;color:'+rc+';">'+(L.rating||'')+'</span>'+
+      '<span class="mono" style="margin-left:auto;font-size:11px;color:'+vColor+';font-weight:600;">'+(c.verdict||'')+' ('+c.passed+' เกณฑ์)</span>'+
+    '</div>'+
+    '<div style="padding:16px 18px;">'+
+      '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;">'+cells+'</div>'+
+      '<div class="mono" style="font-size:9px;color:#6b6e78;margin-bottom:6px;">เกณฑ์ VI / Amorn (อัตโนมัติ · as of '+(c.asof||'')+')</div>'+flags+
+      '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center;">'+
+        '<a href="'+(c.research&&c.research.url||'#')+'" target="_blank" style="background:#1b1f27;border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:8px 13px;color:#cfd1d6;font-size:11.5px;">📄 '+(c.research&&c.research.label||'แหล่ง')+' →</a>'+
+        '<button onclick="navigator.clipboard&&navigator.clipboard.writeText(\''+cmd+'\')" style="cursor:pointer;background:rgba(124,108,240,.16);border:1px solid rgba(124,108,240,.4);border-radius:9px;padding:8px 13px;color:#c3b8fa;font-size:11.5px;">🤖 ขอบทวิเคราะห์เต็มจาก AI (คัดลอกคำสั่ง)</button>'+
+      '</div>'+
+      '<div class="mono" style="font-size:9px;color:#54565e;margin-top:10px;line-height:1.5;">'+(c.note||'')+' · decision-support ไม่ใช่คำแนะนำซื้อขาย</div>'+
+    '</div></div>';
+}
 
 renderBrief();renderTabs();renderPicks();
 </script>
