@@ -1,12 +1,24 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { CfxPick, Daily } from '../cfx';
 import { C, F } from '../theme';
 import { stockLeftHTML, stockFullHTML, tierColor, tierBg, hasRedFlag } from '../lib/cfxReport';
 import { injectWidget, TV_ADV, drawerConfig } from '../lib/tradingview';
 
+// ซ้อนเป็นแนวตั้งบนจอเล็ก (มือถือ) — inline style ทำ media query ไม่ได้
+export function useIsMobile(bp = 900) {
+  const [m, setM] = useState(typeof window !== 'undefined' && window.innerWidth < bp);
+  useEffect(() => {
+    const on = () => setM(window.innerWidth < bp);
+    window.addEventListener('resize', on);
+    return () => window.removeEventListener('resize', on);
+  }, [bp]);
+  return m;
+}
+
 export default function CfxStockModal({ pick, daily, onClose }: { pick: CfxPick; daily: Daily; onClose: () => void }) {
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
+  const mobile = useIsMobile();
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -36,10 +48,10 @@ export default function CfxStockModal({ pick, daily, onClose }: { pick: CfxPick;
           </div>
           <button onClick={onClose} style={{ marginLeft: 'auto', cursor: 'pointer', background: C.cardInset, border: '1px solid rgba(255,255,255,.12)', color: '#dcdee2', borderRadius: 9, padding: '8px 16px', fontSize: 13, fontWeight: 600 }}>✕ ปิด</button>
         </div>
-        <div id="stockCols" style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
-          <div ref={leftRef} style={{ width: '50%', overflowY: 'auto', padding: '22px 28px 60px', borderRight: `1px solid ${C.border}` }}
+        <div id="stockCols" style={{ flex: 1, display: 'flex', flexDirection: mobile ? 'column' : 'row', overflow: mobile ? 'auto' : 'hidden' }}>
+          <div ref={leftRef} style={{ width: mobile ? '100%' : '50%', overflowY: mobile ? 'visible' : 'auto', padding: '22px 28px 60px', borderRight: mobile ? 'none' : `1px solid ${C.border}`, borderBottom: mobile ? `1px solid ${C.border}` : 'none' }}
             dangerouslySetInnerHTML={{ __html: stockLeftHTML(pick) }} />
-          <div ref={rightRef} style={{ width: '50%', overflowY: 'auto', background: '#0e1015' }}>
+          <div ref={rightRef} style={{ width: mobile ? '100%' : '50%', overflowY: mobile ? 'visible' : 'auto', background: '#0e1015' }}>
             <div style={{ position: 'sticky', top: 0, zIndex: 1, background: '#0e1015', padding: '13px 26px', borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: 9 }}>
               <span style={{ fontFamily: F.brand, fontWeight: 700, fontSize: 13.5, color: C.goldLt }}>📑 บทวิเคราะห์เจาะรายตัว — {pick.tk}</span>
               <span style={{ fontFamily: F.mono, fontSize: 9, color: C.faint }}>{pick.name}</span>

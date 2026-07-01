@@ -6,6 +6,7 @@ import { tierColor, tierBg, dotColor, hasRedFlag } from './lib/cfxReport';
 import type { CfxPick } from './cfx';
 import CfxStockModal from './components/CfxStockModal';
 import CfxFullModal from './components/CfxFullModal';
+import CfxStockScope from './components/CfxStockScope';
 
 function useThaiClock() {
   const [s, setS] = useState<{ d: string; t: string }>({ d: '', t: '' });
@@ -109,6 +110,9 @@ export default function App() {
             <span style={{ fontFamily: F.mono, fontSize: 9.5, color: C.faint3 }}>{daily.briefNote}</span>
           </div>
         </div>
+
+        {/* STOCK ANALYSIS (ใส่ ticker เอง) */}
+        <CfxStockScope />
 
         {/* PICKS */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 9, marginBottom: 13, flexWrap: 'wrap' }}>
