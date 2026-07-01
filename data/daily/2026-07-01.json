@@ -1,0 +1,115 @@
+{
+  "date": "2026-07-01",
+  "tz": "Asia/Bangkok",
+  "regime": "Reflation",
+  "bullBear": 9.1,
+  "brief": {
+    "headline": "Reflation late-cycle · B&B 9.1 ใน sell zone · เริ่มหมุนออกจาก mega-cap AI",
+    "bullets": [
+      "Hartnett lens: oil นำ YTD → Reflation/late-cycle · Bull&Bear 9.1 (7.6→9.1) + FMS 100% = take-profit bias",
+      "Tripwires จับตา: MAGS <$60 · AUDJPY <110 · 30Y UST >5% — ติดเมื่อไหร่ = summer risk-off",
+      "Stance: ก่อน trigger ถือ max risk 'long & paranoid' · ที่ trigger หมุนเข้า value/defensive/small-cap",
+      "Structural: long EM>US + commodity · gold <$4k = จุดเข้า ('USD a rent not an own')",
+      "⚔️ Taleb caveat: analog/base-rate เป็น probability ใน Extremistan ไม่ใช่คำพยากรณ์"
+    ],
+    "fullAnalysisUrl": "../../hartnett/Hartnett_Model_RE/Hartnett_FlowShow_Framework_v2.md",
+    "sources": [
+      { "name": "BofA Flow Show (Hartnett) — verified corpus", "url": "", "type": "opinion" },
+      { "name": "FRED (CPI/yields/payrolls)", "url": "https://fred.stlouisfed.org/", "type": "fact" },
+      { "name": "JPM Guide to the Markets", "url": "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/guide-to-the-markets/", "type": "opinion" }
+    ]
+  },
+  "buckets": [
+    {
+      "key": "us", "label": "🇺🇸 สหรัฐฯ", "access": "ซื้อตรง US (offshore/DR)",
+      "picks": [
+        { "tk": "XLE", "name": "Energy Select Sector", "mkt": "US", "tv": "AMEX:XLE", "access": "ซื้อตรง US", "level": "framework",
+          "why": "Reflation regime + oil นำ YTD · พลังงานได้แรงหนุนตรงจาก inflation/commodity cycle",
+          "pillars": ["Macro/Regime (Hartnett)", "Factor: value+momentum (Ilmanen Ch.17/26)"],
+          "strategy": { "bias": "Buy on dip", "entry": "94", "stop": "86", "target": "110", "rr": "1:2.0", "note": "เข้าบางส่วน · cut −8% · take profit เมื่อ oil/regime อ่อน" },
+          "research": { "label": "JPM Guide to the Markets", "url": "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/guide-to-the-markets/" } },
+        { "tk": "XLF", "name": "Financial Select Sector", "mkt": "US", "tv": "AMEX:XLF", "access": "ซื้อตรง US", "level": "framework",
+          "why": "Curve ชัน + reflation หนุน NIM ธนาคาร · กลุ่มได้ประโยชน์ช่วงดอกเบี้ยสูงค้าง",
+          "pillars": ["Macro/Regime (Hartnett)", "Factor (Ilmanen Ch.9 BRP)"],
+          "strategy": { "bias": "Buy", "entry": "52", "stop": "48", "target": "61", "rr": "1:2.3", "note": "trail stop ตามเทรนด์ · ระวังถ้า curve invert" },
+          "research": { "label": "Apollo Daily Spark", "url": "https://www.apolloacademy.com/" } },
+        { "tk": "IWM", "name": "Russell 2000 (small-cap)", "mkt": "US", "tv": "AMEX:IWM", "access": "ซื้อตรง US", "level": "framework",
+          "why": "ธีม 'Small is Big' — สภาพคล่องหมุนจาก mega-cap AI → small/mid-cap · post-bubble rotation",
+          "pillars": ["Macro/Regime (Hartnett 'Small is Big')", "Factor: growth-trap (Ilmanen Ch.16/18)"],
+          "strategy": { "bias": "Accumulate", "entry": "218", "stop": "200", "target": "255", "rr": "1:2.0", "note": "⚔️ timing risk: Ilmanen Ch.18 — illiquid cyclicals เจ็บได้ช่วง liquidity drought" },
+          "research": { "label": "JPM Guide to the Markets", "url": "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/guide-to-the-markets/" } },
+        { "tk": "GDX", "name": "Gold Miners (VanEck)", "mkt": "US", "tv": "AMEX:GDX", "access": "ซื้อตรง US", "level": "framework",
+          "why": "Hartnett: gold <$4k = จุดเข้า · debasement-friendly populist policy หนุนทอง · miner = leverage ต่อทอง",
+          "pillars": ["Macro/Regime (Hartnett gold call)", "Tail-risk hedge (Taleb)"],
+          "strategy": { "bias": "Buy on weakness", "entry": "—", "stop": "−12%", "target": "+25%", "rr": "1:2.0", "note": "ใช้เป็น 'long & paranoid' hedge · ขนาดเล็ก-กลาง" },
+          "research": { "label": "Apollo Daily Spark", "url": "https://www.apolloacademy.com/" } },
+        { "tk": "BRK.B", "name": "Berkshire Hathaway B", "mkt": "US", "tv": "NYSE:BRK.B", "access": "ซื้อตรง US", "level": "framework",
+          "why": "Value/defensive ที่มีเงินสดสูง · ทนช่วง take-profit/risk-off · quality holding",
+          "pillars": ["Value/DCF (Damodaran)", "Behavioral: defensive (Montier)"],
+          "strategy": { "bias": "Hold/Add on dip", "entry": "—", "stop": "−10%", "target": "fair value", "rr": "—", "note": "core defensive · ไม่เร่งเข้า" },
+          "research": { "label": "Damodaran — Musings on Markets", "url": "https://aswathdamodaran.blogspot.com/" } }
+      ]
+    },
+    {
+      "key": "cnjp", "label": "🇨🇳🇯🇵 จีน+ญี่ปุ่น", "access": "HKEX ซื้อตรง · Japan ผ่าน Thai DR",
+      "picks": [
+        { "tk": "9988.HK", "name": "Alibaba", "mkt": "CN", "tv": "HKEX:9988", "access": "HKEX", "level": "framework",
+          "why": "Deep value · cloud margin ฟื้น · P/E ต่ำกว่าค่าเฉลี่ย 5 ปี · ได้ธีม long EM>US",
+          "pillars": ["Value/DCF (Damodaran)", "Macro: long-EM (Hartnett secular)"],
+          "strategy": { "bias": "Buy", "entry": "118", "stop": "102", "target": "145", "rr": "1:1.7", "note": "margin of safety ≥ 20% · ระวัง regulatory tail" },
+          "research": { "label": "Goldman Sachs Insights", "url": "https://www.goldmansachs.com/insights/" } },
+        { "tk": "0883.HK", "name": "CNOOC", "mkt": "CN", "tv": "HKEX:883", "access": "HKEX", "level": "framework",
+          "why": "Energy + reflation + เงินปันผลสูง · ราคาน้ำมันค้างสูงหนุน cash flow",
+          "pillars": ["Macro/Regime (Hartnett)", "Value: dividend (Ilmanen)"],
+          "strategy": { "bias": "Buy on dip", "entry": "—", "stop": "−10%", "target": "+20%", "rr": "1:2.0", "note": "เก็บกินปันผล + upside commodity" },
+          "research": { "label": "BlackRock Investment Institute", "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute" } },
+        { "tk": "2318.HK", "name": "Ping An Insurance", "mkt": "CN", "tv": "HKEX:2318", "access": "HKEX", "level": "framework",
+          "why": "Deep value financials · P/B ต่ำ · ได้ประโยชน์ reflation + China stimulus",
+          "pillars": ["Value/DCF (Damodaran)", "Factor: value (Ilmanen Ch.12)"],
+          "strategy": { "bias": "Accumulate", "entry": "—", "stop": "−10%", "target": "+25%", "rr": "1:2.4", "note": "ทยอยเข้า · catalyst = policy easing" },
+          "research": { "label": "Goldman Sachs Insights", "url": "https://www.goldmansachs.com/insights/" } },
+        { "tk": "0700.HK", "name": "Tencent", "mkt": "CN", "tv": "HKEX:700", "access": "HKEX", "level": "framework",
+          "why": "Quality compounder · buyback ต่อเนื่อง · gaming/ads ฟื้น · ROIC สูง",
+          "pillars": ["Value/DCF (Damodaran ROIC)", "Forensic: pass (Schilit)"],
+          "strategy": { "bias": "Buy on dip", "entry": "—", "stop": "−10%", "target": "fair value", "rr": "—", "note": "core China holding" },
+          "research": { "label": "Morgan Stanley Ideas", "url": "https://www.morganstanley.com/ideas" } },
+        { "tk": "8058.JP", "name": "Mitsubishi Corp (ผ่าน Thai DR)", "mkt": "JP", "tv": "TSE:8058", "access": "⚠️ Thai DR — รอยืนยันลิสต์ SET", "level": "framework",
+          "why": "Trading house · P/B ~0.9 · buyback · Buffett ถือ · value + reflation/commodity",
+          "pillars": ["Value/DCF (Damodaran)", "Macro: commodity (Hartnett)"],
+          "strategy": { "bias": "Buy (ถ้ามี DR)", "entry": "3,180", "stop": "2,860", "target": "3,900", "rr": "1:2.3", "note": "⚠️ ต้องเช็คว่ามี DR บน SET จริงก่อน — ดู universe.json" },
+          "research": { "label": "Damodaran — Musings on Markets", "url": "https://aswathdamodaran.blogspot.com/" } }
+      ]
+    },
+    {
+      "key": "th", "label": "🇹🇭 ไทย", "access": "SET ซื้อตรง",
+      "picks": [
+        { "tk": "PTTEP", "name": "PTT E&P", "mkt": "TH", "tv": "SET:PTTEP", "access": "SET", "level": "framework",
+          "why": "Energy + reflation + ปันผลสูง · ราคาน้ำมันค้างสูงหนุนกำไร",
+          "pillars": ["Macro/Regime (Hartnett)", "Value: dividend"],
+          "strategy": { "bias": "Buy on dip", "entry": "128", "stop": "116", "target": "152", "rr": "1:2.0", "note": "เก็บปันผล + upside oil" },
+          "research": { "label": "SET — บทวิเคราะห์", "url": "https://www.set.or.th/th/market/information/analyst-report" } },
+        { "tk": "BBL", "name": "Bangkok Bank", "mkt": "TH", "tv": "SET:BBL", "access": "SET", "level": "framework",
+          "why": "Financials · P/BV ต่ำ · ได้ดอกเบี้ยสูงค้าง · งบแข็ง coverage สูง",
+          "pillars": ["Macro/Regime (financials)", "Value (Damodaran)"],
+          "strategy": { "bias": "Buy", "entry": "—", "stop": "−8%", "target": "+18%", "rr": "1:2.0", "note": "value play · ปันผลหนุน" },
+          "research": { "label": "SCB EIC", "url": "https://www.scbeic.com/" } },
+        { "tk": "AOT", "name": "Airports of Thailand", "mkt": "TH", "tv": "SET:AOT", "access": "SET", "level": "framework",
+          "why": "Stage-2 momentum · นักท่องเที่ยวฟื้น · RS แข็ง",
+          "pillars": ["Minervini (momentum/stage-2)", "Macro: tourism recovery"],
+          "strategy": { "bias": "Buy breakout", "entry": "62", "stop": "57", "target": "74", "rr": "1:2.4", "note": "เข้า pivot · stop −8%" },
+          "research": { "label": "SET — บทวิเคราะห์", "url": "https://www.set.or.th/th/market/information/analyst-report" } },
+        { "tk": "TIDLOR", "name": "Ngern Tid Lor", "mkt": "TH", "tv": "SET:TIDLOR", "access": "SET", "level": "framework",
+          "why": "Quality · ROE 18% · momentum บวก · สินเชื่อโตต่อเนื่อง",
+          "pillars": ["Factor: quality+momentum", "Forensic: pass"],
+          "strategy": { "bias": "Accumulate", "entry": "16.5", "stop": "14.8", "target": "20", "rr": "1:2.1", "note": "ทยอยเข้า" },
+          "research": { "label": "KResearch", "url": "https://www.kasikornresearch.com/" } },
+        { "tk": "GFPT", "name": "GFPT", "mkt": "TH", "tv": "SET:GFPT", "access": "SET", "level": "framework",
+          "why": "Value · วงจรไก่ฟื้น · EV/EBITDA 6x · margin of safety สูง",
+          "pillars": ["Value/DCF (Damodaran)", "Factor: value"],
+          "strategy": { "bias": "Buy", "entry": "13.5", "stop": "11.8", "target": "18.0", "rr": "1:2.6", "note": "deep value · รอวงจรฟื้น" },
+          "research": { "label": "SET — บทวิเคราะห์", "url": "https://www.set.or.th/th/market/information/analyst-report" } }
+      ]
+    }
+  ],
+  "provenance": "verified-first · fact=แหล่งข้อมูลการเงิน_อ้างอิง · opinion=แหล่งบทวิเคราะห์_สถาบันการเงิน · ราคา=EOD framework (refine เมื่อต่อ feed) · decision-support ไม่ใช่คำแนะนำซื้อขาย"
+}

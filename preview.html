@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CFX Manager — โรงงานวิเคราะห์ (preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0b0d12;font-family:'IBM Plex Sans Thai','Plus Jakarta Sans',sans-serif;color:#e8eaed}
+  @keyframes blip{0%,100%{opacity:1}50%{opacity:.3}}
+  @keyframes ddin{from{transform:translateX(30px);opacity:0}to{transform:translateX(0);opacity:1}}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  ::-webkit-scrollbar{height:9px;width:9px}::-webkit-scrollbar-track{background:#0b0d12}::-webkit-scrollbar-thumb{background:rgba(140,140,160,.28);border-radius:8px}
+  a{text-decoration:none}button{font-family:inherit}
+  .mono{font-family:'IBM Plex Mono',monospace}.brand{font-family:'Plus Jakarta Sans',sans-serif}
+  .card{background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:17px;padding:20px}
+  .pick{background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:13px 15px;cursor:pointer;transition:border-color .15s,transform .15s}
+  .pick:hover{border-color:rgba(124,108,240,.5);transform:translateY(-2px)}
+  .chip{font-size:9.5px;padding:2px 8px;border-radius:6px;background:rgba(124,108,240,.14);color:#c3b8fa;border:1px solid rgba(124,108,240,.3)}
+  .lens{background:#1b1f27;border:1px solid rgba(255,255,255,.05);border-radius:11px;padding:11px 13px;margin-bottom:8px}
+  .lensH{font-size:11px;color:#e0bd6f;font-weight:600;margin-bottom:4px}.lensB{font-size:12px;color:#cfd1d6;line-height:1.5}
+  .jrt{background:rgba(124,108,240,.07);border:1px solid rgba(124,108,240,.2);border-radius:10px;padding:9px 12px;margin-bottom:7px;font-size:11.5px;color:#c9c2ee;line-height:1.5}
+  @media(max-width:980px){.picks{grid-template-columns:1fr 1fr !important}}
+  @media(max-width:900px){#stockCols{flex-direction:column !important}#stockLeft,#stockRight{width:100% !important;border-right:none !important}#stockLeft{border-bottom:1px solid rgba(255,255,255,.07)}}
+  @media(max-width:600px){.picks{grid-template-columns:1fr !important}.wrap{padding:16px 13px 60px !important}.hdr{padding:11px 14px !important}}
+</style>
+</head>
+<body>
+<div style="min-height:100vh;background:radial-gradient(1200px 600px at 80% -10%,rgba(124,108,240,.10),transparent 60%),#0b0d12;">
+
+  <div style="position:sticky;top:0;z-index:20;background:rgba(11,13,18,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07);">
+    <div class="hdr" style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:13px 26px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="brand" style="height:32px;width:32px;border-radius:10px;background:linear-gradient(135deg,#7c6cf0,#a98cff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px;">C</div>
+        <div style="display:flex;flex-direction:column;"><span class="brand" style="font-weight:800;font-size:15px;letter-spacing:.13em;color:#f0f1f4;">CFX MANAGER</span><span style="font-size:10px;color:#71747e;">Charles Francis Xavier · JRT + Hartnett + Amorn</span></div>
+      </div>
+      <div id="clock" class="mono" style="margin-left:auto;font-size:12.5px;color:#cfd1d6;text-align:right;line-height:1.4;"></div>
+      <div style="display:flex;align-items:center;gap:7px;background:rgba(210,166,74,.12);border:1px solid rgba(210,166,74,.35);border-radius:20px;padding:6px 13px;"><span style="height:7px;width:7px;border-radius:50%;background:#d2a64a;"></span><span class="brand" id="regimeTxt" style="font-weight:700;font-size:12px;color:#e0bd6f;letter-spacing:.04em;">REFLATION</span></div>
+    </div>
+  </div>
+
+  <div class="wrap" style="max-width:1200px;margin:0 auto;padding:22px 26px 80px;">
+
+    <!-- บรีฟวันนี้ -->
+    <div class="card" style="margin-bottom:18px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;flex-wrap:wrap;">
+        <span class="brand" style="font-weight:700;font-size:16px;color:#f0f1f4;">บรีฟวันนี้</span>
+        <span style="font-size:11px;color:#71747e;">· The Flow Show — Hartnett lens</span>
+        <span id="briefAsof" class="mono" style="font-size:10px;color:#8a8d96;"></span>
+        <span class="mono" id="bbPill" style="margin-left:auto;font-size:10px;color:#e0594e;background:rgba(224,89,78,.12);border-radius:5px;padding:3px 8px;">Bull&amp;Bear 9.1 · SELL</span>
+      </div>
+      <div id="briefTabs" style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px;"></div>
+      <div id="briefHead" style="font-size:13.5px;color:#e8eaed;font-weight:600;margin-bottom:12px;"></div>
+      <div id="briefTopics" style="display:flex;flex-direction:column;gap:9px;margin-bottom:14px;"></div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <button onclick="openFull(curBrief)" style="cursor:pointer;display:inline-flex;align-items:center;gap:7px;background:rgba(124,108,240,.16);border:1px solid rgba(124,108,240,.45);border-radius:10px;padding:9px 16px;color:#c3b8fa;font-size:12.5px;font-weight:600;">📖 อ่านบทวิเคราะห์ฉบับเต็ม (ตามแท็บ)</button>
+        <span id="briefNote" class="mono" style="font-size:9.5px;color:#54565e;"></span>
+      </div>
+    </div>
+
+    <!-- Top picks -->
+    <div style="display:flex;align-items:center;gap:9px;margin-bottom:13px;flex-wrap:wrap;">
+      <span class="brand" style="font-weight:700;font-size:16px;color:#f0f1f4;">หุ้นน่าสนใจวันนี้</span>
+      <span style="font-size:11px;color:#71747e;">· 10 ตัว/ตลาด — กดเพื่อดูบทวิเคราะห์ Amorn + เสา JRT + จุดเสี่ยง + ธงแดง</span>
+    </div>
+    <div id="tabs" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;"></div>
+    <div id="accessNote" class="mono" style="font-size:10px;color:#6b6e78;margin-bottom:12px;"></div>
+    <div id="picks" class="picks" style="display:grid;grid-template-columns:repeat(5,1fr);gap:11px;"></div>
+
+    <div style="margin-top:22px;text-align:center;font-size:10px;color:#3f4148;" class="mono">CFX Manager · JRT (Damodaran/Ilmanen/Schilit/Montier/Taleb) + Hartnett + Amorn · input ตามกฎแหล่งข้อมูล 2 ไฟล์ · decision-support ไม่ใช่คำแนะนำซื้อขาย</div>
+  </div>
+
+  <!-- STOCK FULL-SCREEN (2 columns: ซ้าย=รายละเอียดหุ้น · ขวา=บทวิเคราะห์ฉบับเต็ม) -->
+  <div id="stockModal" style="display:none;position:fixed;inset:0;z-index:45;background:#0b0d12;animation:fadein .18s ease;">
+    <div style="height:100%;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:11px;padding:12px 22px;border-bottom:1px solid rgba(255,255,255,.08);background:#101319;flex-wrap:wrap;">
+        <div id="stockHead" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;"></div>
+        <button onclick="closeStock()" style="margin-left:auto;cursor:pointer;background:#1b1f27;border:1px solid rgba(255,255,255,.12);color:#dcdee2;border-radius:9px;padding:8px 16px;font-size:13px;font-weight:600;">✕ ปิด</button>
+      </div>
+      <div id="stockCols" style="flex:1;display:flex;overflow:hidden;">
+        <div id="stockLeft" style="width:50%;overflow-y:auto;padding:22px 28px 60px;border-right:1px solid rgba(255,255,255,.07);"></div>
+        <div id="stockRight" style="width:50%;overflow-y:auto;background:#0e1015;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL ANALYSIS MODAL -->
+  <div id="fullModal" style="display:none;position:fixed;inset:0;z-index:50;background:rgba(6,7,11,.78);backdrop-filter:blur(5px);overflow-y:auto;animation:fadein .2s ease;" onclick="closeFull(event)">
+    <div id="fullSheet" style="max-width:880px;margin:34px auto;background:#13161d;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:0;overflow:hidden;" onclick="event.stopPropagation()"></div>
+  </div>
+</div>
+
+<script src="./data/daily/2026-07-01.js"></script>
+<script>
+var DAILY = window.CFX_DAILY;
+var curBucket='us';
+
+function tickClock(){
+  try{
+    var now=new Date();
+    var d=new Intl.DateTimeFormat('th-TH',{timeZone:'Asia/Bangkok',weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(now);
+    var t=new Intl.DateTimeFormat('th-TH',{timeZone:'Asia/Bangkok',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(now);
+    document.getElementById('clock').innerHTML='<span style="color:#f0f1f4;">'+d+'</span><br><span style="font-size:15px;color:#4ec98a;">'+t+' น.</span> <span style="color:#54565e;">ICT</span>';
+  }catch(e){}
+}
+setInterval(tickClock,1000);tickClock();
+
+var curBrief='us';
+function renderBrief(){
+  document.getElementById('regimeTxt').textContent=(DAILY.regime||'').toUpperCase();
+  document.getElementById('bbPill').textContent='Bull&Bear '+DAILY.bullBear+' · '+(DAILY.bullBear>=8?'SELL':DAILY.bullBear<=2?'BUY':'neutral');
+  document.getElementById('briefAsof').textContent='· อัปเดต '+(DAILY.briefAsof||'');
+  document.getElementById('briefNote').textContent=DAILY.briefNote||'';
+  document.getElementById('briefTabs').innerHTML=Object.keys(DAILY.briefs).map(function(k){var on=k===curBrief;return '<button onclick="selBrief(\''+k+'\')" style="cursor:pointer;font-size:12px;font-weight:600;padding:6px 13px;border-radius:9px;border:1px solid '+(on?'rgba(124,108,240,.55)':'rgba(255,255,255,.12)')+';background:'+(on?'rgba(124,108,240,.18)':'transparent')+';color:'+(on?'#c3b8fa':'#9a9da6')+';">'+DAILY.briefs[k].label+'</button>';}).join('');
+  var b=DAILY.briefs[curBrief];
+  document.getElementById('briefHead').textContent=b.headline;
+  document.getElementById('briefTopics').innerHTML=b.topics.map(function(t){
+    var tc=t.type==='fact'?'#4ec98a':'#e0bd6f';
+    return '<div style="display:flex;gap:10px;align-items:flex-start;border-left:2px solid '+tc+';padding-left:11px;"><div style="flex:1;"><div style="font-size:12px;color:#cfd1d6;line-height:1.5;">'+t.text+'</div><div class="mono" style="font-size:9px;color:#6b6e78;margin-top:3px;">'+(t.url?'<a href="'+t.url+'" target="_blank" style="color:#7e88a8;">'+t.source+'</a>':t.source)+' · '+t.time+' · <span style="color:'+tc+';font-weight:600;">'+(t.type==='fact'?'ข้อเท็จจริง':'มุมมอง')+'</span></div></div></div>';
+  }).join('');
+}
+function selBrief(k){curBrief=k;renderBrief();}
+function renderTabs(){
+  document.getElementById('tabs').innerHTML=DAILY.buckets.map(function(b){var on=b.key===curBucket;return '<button onclick="selBucket(\''+b.key+'\')" style="cursor:pointer;font-size:13px;font-weight:600;padding:9px 18px;border-radius:11px;border:1px solid '+(on?'rgba(124,108,240,.55)':'rgba(255,255,255,.12)')+';background:'+(on?'rgba(124,108,240,.18)':'transparent')+';color:'+(on?'#c3b8fa':'#9a9da6')+';">'+b.label+'</button>';}).join('');
+}
+function dotColor(s){if(/Buy|Accumulate/i.test(s))return '#4ec98a';if(/Hold/i.test(s))return '#d2a64a';return '#9a9da6';}
+function tierColor(t){return t==='A'?'#4ec98a':t==='B'?'#d2a64a':'#7e8088';}
+function tierBg(t){return t==='A'?'rgba(78,201,138,.14)':t==='B'?'rgba(210,166,74,.14)':'rgba(126,128,136,.14)';}
+function hasRedFlag(p){return (p.cutTriggers||[]).some(function(c){return c.triggered;});}
+function renderPicks(){
+  var b=DAILY.buckets.find(function(x){return x.key===curBucket;});
+  document.getElementById('accessNote').innerHTML='วิธีซื้อ: '+b.access+' &nbsp;·&nbsp; <span style="color:#8a8d96;">'+(DAILY.tierLegend||'')+'</span>';
+  document.getElementById('picks').innerHTML=b.picks.map(function(p,i){
+    var red=hasRedFlag(p)?'<span style="margin-left:auto;font-size:9px;color:#fff;background:#e0594e;padding:2px 6px;border-radius:5px;">🚩</span>':'<span class="mono" style="margin-left:auto;font-size:9px;color:#9a9da6;background:#23262f;padding:2px 6px;border-radius:5px;">'+p.mkt+'</span>';
+    var tierBadge='<span class="mono" style="font-size:9px;font-weight:600;color:'+tierColor(p.tier)+';background:'+tierBg(p.tier)+';border:1px solid '+tierColor(p.tier)+'55;padding:1px 6px;border-radius:5px;">#'+p.rank+' · '+p.tier+'</span>';
+    return '<div class="pick" onclick="openSel(\''+curBucket+'\','+i+')">'+
+      '<div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">'+tierBadge+'<span style="height:7px;width:7px;border-radius:50%;background:'+dotColor(p.strategy.bias)+';"></span><span class="mono" style="font-weight:600;font-size:13.5px;color:#f4f5f7;">'+p.tk+'</span>'+red+'</div>'+
+      '<div style="font-size:10.5px;color:#9a9da6;margin-bottom:7px;min-height:26px;">'+p.name+'</div>'+
+      '<div style="font-size:10.5px;color:#b6b8c0;line-height:1.4;margin-bottom:8px;min-height:44px;">'+p.why+'</div>'+
+      '<div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:9.5px;color:#8a8d96;">'+p.strategy.bias+'</span><span class="mono" style="font-size:9.5px;color:#a98cff;">R:R '+(p.strategy.rr||'—')+'</span></div></div>';
+  }).join('');
+}
+function selBucket(k){curBucket=k;renderTabs();renderPicks();}
+
+// drawer
+function injectChart(id,sym){
+  var el=document.getElementById(id);if(!el)return;
+  if(!sym){el.innerHTML='<div style="display:flex;height:100%;align-items:center;justify-content:center;color:#54565e;font-size:12px;">ไม่มีกราฟ</div>';return;}
+  var wrap=document.createElement('div');wrap.className='tradingview-widget-container';wrap.style.height='100%';
+  var inner=document.createElement('div');inner.className='tradingview-widget-container__widget';inner.style.height='100%';wrap.appendChild(inner);
+  var s=document.createElement('script');s.src='https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';s.async=true;
+  s.innerHTML=JSON.stringify({symbol:sym,interval:'D',theme:'dark',style:'1',locale:'en',autosize:true,withdateranges:true});
+  wrap.appendChild(s);el.innerHTML='';el.appendChild(wrap);
+}
+function box(l,v,c){return '<div style="background:#1b1f27;text-align:center;padding:11px 4px;border-radius:11px;"><div class="mono" style="font-size:9px;color:#6b6e78;">'+l+'</div><div class="mono" style="font-size:14px;color:'+c+';margin-top:3px;">'+v+'</div></div>';}
+function lens(h,b){return '<div class="lens"><div class="lensH">'+h+'</div><div class="lensB">'+b+'</div></div>';}
+function sH(t){return '<div class="mono" style="font-size:9px;color:#6b6e78;letter-spacing:.07em;margin:18px 0 8px;">'+t+'</div>';}
+function hz(label,sub,color,text){return '<div style="display:flex;gap:11px;align-items:flex-start;background:#1b1f27;border-left:3px solid '+color+';border-radius:9px;padding:9px 12px;margin-bottom:7px;"><div style="min-width:46px;"><div style="font-size:12px;font-weight:600;color:'+color+';">'+label+'</div><div class="mono" style="font-size:8px;color:#6b6e78;">'+sub+'</div></div><div style="font-size:11.5px;color:#cfd1d6;line-height:1.5;">'+(text||'—')+'</div></div>';}
+
+function para(t){return '<div style="font-size:12px;color:#c5c7cf;line-height:1.7;margin-bottom:16px;">'+(t||'—')+'</div>';}
+// ลิงก์บทวิเคราะห์ — TH → settrade analyst-consensus per-symbol
+function researchLink(p){ if(p.mkt==='TH')return {label:'Settrade — Analyst Consensus ('+p.tk+')',url:'https://www.settrade.com/th/equities/quote/'+p.tk+'/analyst-consensus'}; return p.research; }
+// Analyst consensus — TH:Settrade · US:Finviz · HK/JP:ลิงก์
+function consUrl(tk,src){if(src==='st')return 'https://www.settrade.com/th/equities/quote/'+tk+'/analyst-consensus';if(src==='fv')return 'https://finviz.com/quote.ashx?t='+tk.replace('.','-');if(src==='yh')return 'https://finance.yahoo.com/quote/'+tk.replace('.JP','.T');return '#';}
+function srcLabel(src){return src==='st'?'Settrade · IAA':src==='fv'?'Finviz':src==='yh'?'Yahoo Finance':'';}
+function ratingFromRecom(r){return r<1.5?'Strong Buy':r<2.5?'Buy':r<3.5?'Hold':r<4.5?'Sell':'Strong Sell';}
+function consensusBlock(tk){
+  var c=DAILY.consensus&&DAILY.consensus[tk];if(!c)return '';
+  var url=consUrl(tk,c.src);var lbl=srcLabel(c.src);
+  if(c.linkOnly){
+    return sectionTitle('📊 Analyst Consensus ('+lbl+')')+
+      '<div style="background:#1b1f27;border-radius:11px;padding:13px 15px;margin-bottom:16px;">'+
+      '<div style="font-size:11px;color:#cbb890;line-height:1.55;margin-bottom:10px;">⚠️ ดึงอัตโนมัติยังไม่ได้ (Yahoo/Morningstar บล็อก bot) — เปิดดู consensus/ราคาเป้าหมายบนหน้าได้โดยตรง · engine จริงจะดึงผ่าน API</div>'+
+      '<a href="'+url+'" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#14171e;border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:9px 14px;color:#cfd1d6;font-size:12px;">🔗 เปิด '+lbl+' ('+tk+') →</a></div>';
+  }
+  var rating=(c.rating&&c.rating!=='n/a')?c.rating:(c.recom!=null?ratingFromRecom(c.recom):'n/a');
+  var rc=/Buy/i.test(rating)?'#4ec98a':/Hold/i.test(rating)?'#d2a64a':/Sell/i.test(rating)?'#e0594e':'#7e8088';
+  var cur=c.cur||'';
+  var meta=[];if(c.n)meta.push(c.n+' โบรก');if(c.recom!=null)meta.push('Recom '+c.recom+'/5');if(c.bull!=null)meta.push('Bullish '+c.bull+'%');
+  var bar='';
+  if(c.b!=null){var tot=(c.b+c.h+c.s)||1;bar='<div style="display:flex;height:7px;border-radius:4px;overflow:hidden;background:#23262f;margin:9px 0;">'+(c.b?'<div style="width:'+(c.b/tot*100)+'%;background:#4ec98a;"></div>':'')+(c.h?'<div style="width:'+(c.h/tot*100)+'%;background:#d2a64a;"></div>':'')+(c.s?'<div style="width:'+(c.s/tot*100)+'%;background:#e0594e;"></div>':'')+'</div><div class="mono" style="font-size:10px;color:#8a8d96;margin-bottom:9px;">ซื้อ '+c.b+' · ถือ '+c.h+' · ขาย '+c.s+'</div>';}
+  var cell=function(l,v,col){return '<div style="text-align:center;background:#14171e;border-radius:9px;padding:8px 4px;"><div class="mono" style="font-size:8.5px;color:#6b6e78;">'+l+'</div><div class="mono" style="font-size:14px;color:'+col+';">'+cur+v+'</div></div>';};
+  var targets=(c.hi!=null)?'<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">'+cell('เป้าเฉลี่ย',c.tgt,'#f0f1f4')+cell('สูงสุด',c.hi,'#4ec98a')+cell('ต่ำสุด',c.lo,'#e0594e')+'</div>':(c.tgt!=null?'<div style="display:grid;grid-template-columns:1fr;gap:8px;">'+cell('ราคาเป้าหมาย (เฉลี่ย)',c.tgt,'#f0f1f4')+'</div>':'');
+  return sectionTitle('📊 Analyst Consensus ('+lbl+')')+
+    '<div style="background:#1b1f27;border-radius:11px;padding:13px 15px;margin-bottom:16px;">'+
+      '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:2px;">'+
+        '<span style="font-size:13px;font-weight:700;color:'+rc+';">'+rating+'</span>'+
+        '<span class="mono" style="font-size:10px;color:#9a9da6;">'+meta.join(' · ')+'</span>'+
+        '<a href="'+url+'" target="_blank" class="mono" style="margin-left:auto;font-size:10px;color:#7e88a8;">เปิดหน้า '+lbl+' →</a>'+
+      '</div>'+ bar +
+      (c.note?'<div class="mono" style="font-size:10px;color:#cbb890;margin-bottom:9px;">'+c.note+'</div>':'')+ targets +
+      '<div class="mono" style="font-size:9px;color:#54565e;margin-top:8px;">ที่มา: '+lbl+' · '+(DAILY.consensusAsof||'')+'</div>'+
+    '</div>';
+}
+// บทวิเคราะห์เจาะรายตัว (ครึ่งขวาของหน้าต่างหุ้น)
+function stockFull(p){
+  var a=p.amorn||{};
+  var macro=(p.pillars||[]).filter(function(x){return /Macro|Hartnett|Regime|oligopoly|moat|commodity|EM/i.test(x);});
+  var redCount=(p.cutTriggers||[]).filter(function(c){return c.triggered;}).length;
+  return '<div style="padding:20px 26px 50px;">'+
+    sectionTitle('🎯 บทสรุปการลงทุน')+
+    '<div style="background:#1b1f27;border-left:3px solid '+tierColor(p.tier)+';border-radius:9px;padding:12px 14px;margin-bottom:16px;">'+
+      '<div style="font-size:12.5px;color:#dcdee2;line-height:1.65;">'+p.why+'</div>'+
+      '<div class="mono" style="font-size:10px;color:#9a9da6;margin-top:8px;">อันดับ #'+p.rank+' · Tier '+p.tier+' · จุดยืน: <b style="color:'+tierColor(p.tier)+';">'+p.strategy.bias+'</b>'+(redCount?' · <span style="color:#e0594e;">🚩 ธงแดงเกิดแล้ว '+redCount+' จุด</span>':'')+'</div>'+
+    '</div>'+
+    sectionTitle('🏢 ธุรกิจ & ความได้เปรียบเชิงแข่งขัน')+para(a.business)+
+    sectionTitle('📈 คุณภาพการเติบโต')+para(a.growth)+
+    sectionTitle('💰 การประเมินมูลค่า (Valuation)')+para(a.valuation)+
+    consensusBlock(p.tk)+
+    sectionTitle('🧾 คุณภาพงบการเงิน & Forensic gate')+para(a.financials)+
+    sectionTitle('🏛️ เสาความรู้ JRT — วิธี/บทที่ใช้ประเมิน')+
+    (p.jrt||[]).map(function(j){return '<div class="jrt">'+j+'</div>';}).join('')+
+    sectionTitle('🌐 หุ้นนี้กับภาวะตลาดปัจจุบัน')+
+    para('regime ปัจจุบัน = <b style="color:#e0bd6f;">'+DAILY.regime+'</b> · tilt ตลาด: '+(DAILY.regimeTilt||'')+'. '+(macro.length?'หุ้นนี้เชื่อมกับ regime ผ่าน: '+macro.join(' · '):'เป็น bottom-up เป็นหลัก ไม่ผูก regime โดยตรง')+'.')+
+    sectionTitle('⚖️ มุมความเสี่ยง & วินัยคัต')+
+    '<div style="font-size:11.5px;color:#cbb890;line-height:1.6;margin-bottom:9px;"><b>จุดเฝ้าระวัง:</b> '+((p.watchpoints||[]).join(' · ')||'—')+'</div>'+
+    '<div style="font-size:11.5px;color:#cfd1d6;line-height:1.6;"><b>วินัยคัต (Amorn):</b> Stop loss เด็ดขาด · "อย่าเด็ดดอกไม้รดน้ำวัชพืช" (ตัด loser เร็ว ถือ winner ห้ามถัว) · ตลาดไทยมีเจ้ามือ ราคามักลงนำงบ → ใช้ price action เป็นสัญญาณเตือน (ดูธงแดงคอลัมน์ซ้าย)</div>'+
+    sectionTitle('เสาที่ใช้ & แหล่งอ้างอิง')+
+    '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">'+(p.pillars||[]).map(function(x){return '<span class="chip">'+x+'</span>';}).join('')+'</div>'+
+    '<a href="'+researchLink(p).url+'" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#1b1f27;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:9px 14px;color:#cfd1d6;font-size:12px;">📄 '+researchLink(p).label+' →</a>'+
+    '<div style="margin-top:16px;font-size:9.5px;color:#54565e;line-height:1.5;">เสา JRT = method จาก textbook เชิงคุณภาพ (ตัวเลขจริงเมื่อ engine ดึงงบ) · ราคา=EOD framework · decision-support ไม่ใช่คำแนะนำซื้อขาย</div>'+
+  '</div>';
+}
+function openSel(bk,i){
+  var p=DAILY.buckets.find(function(x){return x.key===bk;}).picks[i];var st=p.strategy;var a=p.amorn||{};var red=hasRedFlag(p);
+  document.getElementById('stockHead').innerHTML=
+    '<span class="mono" style="font-weight:600;font-size:19px;color:#f4f5f7;">'+p.tk+'</span>'+
+    '<span style="font-size:12px;color:#cfd1d6;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+p.name+'</span>'+
+    '<span class="mono" style="font-size:10px;color:#9a9da6;background:#23262f;padding:2px 8px;border-radius:6px;">'+p.mkt+'</span>'+
+    '<span class="mono" style="font-size:10px;font-weight:600;color:'+tierColor(p.tier)+';background:'+tierBg(p.tier)+';border:1px solid '+tierColor(p.tier)+'55;padding:2px 8px;border-radius:6px;">อันดับ #'+p.rank+' · Tier '+p.tier+'</span>'+
+    (red?'<span style="font-size:10px;color:#fff;background:#e0594e;padding:2px 8px;border-radius:6px;">🚩 มีธงแดง</span>':'');
+  var html=
+    '<div class="mono" style="font-size:10px;color:#8a8d96;margin-bottom:14px;">วิธีซื้อ: '+p.access+'</div>'+
+    '<div id="dd-chart" style="height:300px;border:1px solid rgba(255,255,255,.07);border-radius:13px;overflow:hidden;background:#0d1016;"></div>'+
+    sH('ทำไมน่าสนใจ (สรุป)')+'<div style="font-size:12.5px;color:#dcdee2;line-height:1.6;">'+p.why+'</div>'+
+    '<div class="mono" style="font-size:10px;color:#7e88a8;background:rgba(124,108,240,.08);border:1px solid rgba(124,108,240,.2);border-radius:8px;padding:9px 12px;margin:14px 0;">📑 บทวิเคราะห์เจาะรายตัวฉบับเต็ม (ธุรกิจ · มูลค่า · งบ · เสา JRT · ความเสี่ยง) อยู่คอลัมน์ขวา →</div>'+
+    sH('🚩 ธงแดง — เกิดแล้วต้องคัตทันที')+
+    '<div style="display:flex;flex-direction:column;gap:7px;">'+(p.cutTriggers||[]).map(function(c){
+      return c.triggered
+        ?'<div style="display:flex;gap:9px;align-items:flex-start;background:rgba(224,89,78,.13);border:1px solid rgba(224,89,78,.5);border-radius:10px;padding:9px 11px;"><span>🚩</span><div><span style="font-size:9px;color:#fff;background:#e0594e;padding:1px 6px;border-radius:4px;">เกิดแล้ว · คัต</span><div style="font-size:12px;color:#f0b8b2;line-height:1.45;margin-top:4px;">'+c.t+'</div></div></div>'
+        :'<div style="display:flex;gap:9px;align-items:flex-start;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:9px 11px;"><span style="color:#6b6e78;">○</span><div><span class="mono" style="font-size:8.5px;color:#6b6e78;">เฝ้าดู</span><div style="font-size:12px;color:#b6b8c0;line-height:1.45;margin-top:2px;">'+c.t+'</div></div></div>';
+    }).join('')+'</div>'+
+    sH('กลยุทธ์ซื้อ-ขาย ('+(p.level==='live'?'live':'EOD framework')+')')+
+    '<div style="background:#1b1f27;border-radius:11px;padding:11px 13px;margin-bottom:8px;font-size:12px;color:#dcdee2;"><b style="color:#c3b8fa;">'+st.bias+'</b> — '+st.note+'</div>'+
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">'+box('เข้า',st.entry,'#e8eaed')+box('คัทลอส',st.stop,'#e0594e')+box('เป้า',st.target,'#4ec98a')+box('R:R',st.rr||'—','#a98cff')+'</div>'+
+    sH('⏱️ กลยุทธ์ตามกรอบเวลา')+
+    (p.horizons?(hz('สั้น','วัน–สัปดาห์','#5b8dbe',p.horizons.short)+hz('กลาง','1–6 เดือน','#a98cff',p.horizons.medium)+hz('ยาว','1 ปี+','#4ec98a',p.horizons.long)):'')+
+    '<div style="margin-top:18px;font-size:10px;color:#54565e;line-height:1.5;">ราคา=EOD framework · ธงแดง triggered เมื่อ engine รัน live · บทวิเคราะห์เต็ม + ลิงก์ Settrade/แหล่งอ้างอิง อยู่คอลัมน์ขวา →</div>';
+  document.getElementById('stockLeft').innerHTML=html;document.getElementById('stockLeft').scrollTop=0;
+  document.getElementById('stockRight').innerHTML='<div style="position:sticky;top:0;z-index:1;background:#0e1015;padding:13px 26px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:9px;"><span class="brand" style="font-weight:700;font-size:13.5px;color:#e0bd6f;">📑 บทวิเคราะห์เจาะรายตัว — '+p.tk+'</span><span class="mono" style="font-size:9px;color:#6b6e78;">'+p.name+'</span></div>'+stockFull(p);
+  document.getElementById('stockRight').scrollTop=0;
+  document.getElementById('stockModal').style.display='block';document.body.style.overflow='hidden';
+  setTimeout(function(){injectChart('dd-chart',p.tv);},160);
+}
+function closeStock(){document.getElementById('stockModal').style.display='none';document.body.style.overflow='';}
+
+// full analysis body (reuse: brief modal + ครึ่งขวาของหน้าต่างหุ้น)
+function faBody(){
+  var f=DAILY.fullAnalysis;var bb=f.bullBear;var pct=Math.min(100,bb.value*10);
+  var traj=bb.trajectory.map(function(t,i){return '<span class="mono" style="font-size:11px;color:'+(i===bb.trajectory.length-1?'#e0594e':'#9a9da6')+';">'+t[1].toFixed(1)+'</span>'+(i<bb.trajectory.length-1?' <span style="color:#54565e;">→</span> ':'');}).join('');
+  return '<div style="padding:22px 26px;">'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">'+
+      '<div class="card" style="background:#1b1f27;padding:15px;"><div class="mono" style="font-size:9px;color:#6b6e78;margin-bottom:9px;">REGIME · GROWTH × INFLATION</div>'+
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;">'+f.regime.box.map(function(x){var on=/●/.test(x);return '<div style="border-radius:8px;padding:8px;font-size:10px;text-align:center;background:'+(on?'#d2a64a':'#23262f')+';color:'+(on?'#1a1306':'#71747e')+';font-weight:'+(on?700:400)+';">'+x+'</div>';}).join('')+'</div>'+
+        '<div style="font-size:10.5px;color:#9a9da6;margin-top:10px;">→ tilt: '+f.regime.tilt+'</div></div>'+
+      '<div class="card" style="background:#1b1f27;padding:15px;"><div style="display:flex;justify-content:space-between;"><span class="mono" style="font-size:9px;color:#6b6e78;">BULL &amp; BEAR</span><span class="mono" style="font-size:17px;color:#e0594e;font-weight:600;">'+bb.value+'</span></div>'+
+        '<div style="height:7px;border-radius:4px;margin:11px 0 7px;background:linear-gradient(90deg,#4ec98a,#d2a64a,#e0594e);position:relative;"><span style="position:absolute;top:-3px;left:'+pct+'%;height:13px;width:3px;border-radius:2px;background:#f0f1f4;box-shadow:0 0 0 2px #1b1f27;"></span></div>'+
+        '<div style="margin-bottom:8px;">'+traj+'</div>'+
+        '<div style="font-size:10px;color:#9a9da6;line-height:1.45;">'+bb.note+'</div></div>'+
+    '</div>'+
+    sectionTitle('🎯 Tripwires (X to $price = event)')+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;">'+f.tripwires.map(function(t){return '<div style="background:#1b1f27;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:9px;"><span class="mono" style="font-size:12px;color:#f0f1f4;font-weight:600;min-width:62px;">'+t.label+'</span><span class="mono" style="font-size:11px;color:#e0bd6f;">'+t.level+'</span><span style="font-size:10px;color:#9a9da6;margin-left:auto;text-align:right;">'+t.meaning+'</span></div>';}).join('')+'</div>'+
+    sectionTitle('💧 Flows / Positioning')+
+    '<div style="display:flex;flex-direction:column;gap:6px;margin-bottom:18px;">'+f.flows.map(function(x){return '<div style="font-size:11.5px;color:#cfd1d6;line-height:1.5;">• '+x+'</div>';}).join('')+'</div>'+
+    sectionTitle('📐 Analog (base rate)')+
+    '<div style="background:rgba(224,89,78,.08);border:1px solid rgba(224,89,78,.22);border-radius:11px;padding:12px 14px;margin-bottom:18px;"><div style="font-size:11.5px;color:#e8c4c0;line-height:1.55;">'+f.analog.text+'</div><div style="font-size:10.5px;color:#9a8884;margin-top:7px;">'+f.analog.caveat+'</div></div>'+
+    sectionTitle('🧭 Stance (จุดยืน)')+
+    '<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px;">'+
+      '<div style="background:#1b1f27;border-radius:11px;padding:11px 13px;"><div style="font-size:10px;color:#8a8d96;margin-bottom:4px;">ก่อน trigger</div><div style="font-size:11.5px;color:#dcdee2;line-height:1.4;">'+f.stance.before+'</div></div>'+
+      '<div style="background:#1b1f27;border-radius:11px;padding:11px 13px;"><div style="font-size:10px;color:#8a8d96;margin-bottom:4px;">ที่ trigger</div><div style="font-size:11.5px;color:#dcdee2;line-height:1.4;">'+f.stance.at+'</div></div>'+
+      '<div style="background:#1b1f27;border-radius:11px;padding:11px 13px;"><div style="font-size:10px;color:#8a8d96;margin-bottom:4px;">structural</div><div style="font-size:11.5px;color:#dcdee2;line-height:1.4;">'+f.stance.structural+'</div></div>'+
+    '</div>'+
+    f.sections.map(function(s){return sectionTitle(s.h)+'<div style="font-size:11.5px;color:#c5c7cf;line-height:1.65;margin-bottom:16px;">'+s.body+'</div>';}).join('')+
+    '<div style="border-top:1px solid rgba(255,255,255,.08);margin-top:8px;padding-top:14px;" class="mono"><span style="font-size:9.5px;color:#6b6e78;">แหล่ง: '+f.sources.join(' · ')+'</span></div>'+
+    '<div style="margin-top:10px;font-size:9.5px;color:#54565e;">decision-support เท่านั้น ไม่ใช่คำแนะนำซื้อขาย</div>'+
+  '</div>';
+}
+// full analysis modal (ปุ่มในช่องบรีฟ)
+function openFull(key){
+  var f=DAILY.briefs[key].full;
+  var parts='';
+  if(f.regime||f.bullBear){
+    parts+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">';
+    if(f.regime)parts+='<div class="card" style="background:#1b1f27;padding:16px;"><div class="mono" style="font-size:9px;color:#6b6e78;margin-bottom:9px;">REGIME · GROWTH × INFLATION</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;">'+f.regime.box.map(function(x){var on=/●/.test(x);return '<div style="border-radius:8px;padding:8px;font-size:10px;text-align:center;background:'+(on?'#d2a64a':'#23262f')+';color:'+(on?'#1a1306':'#71747e')+';font-weight:'+(on?700:400)+';">'+x+'</div>';}).join('')+'</div><div style="font-size:11px;color:#9a9da6;margin-top:10px;">→ tilt: '+f.regime.tilt+'</div></div>';
+    if(f.bullBear){var bb=f.bullBear;var pct=Math.min(100,bb.value*10);var traj=bb.trajectory.map(function(t,i){return '<span class="mono" style="font-size:11px;color:'+(i===bb.trajectory.length-1?'#e0594e':'#9a9da6')+';">'+t[1].toFixed(1)+'</span>'+(i<bb.trajectory.length-1?' <span style="color:#54565e;">→</span> ':'');}).join('');parts+='<div class="card" style="background:#1b1f27;padding:16px;"><div style="display:flex;justify-content:space-between;"><span class="mono" style="font-size:9px;color:#6b6e78;">BULL &amp; BEAR</span><span class="mono" style="font-size:17px;color:#e0594e;font-weight:600;">'+bb.value+'</span></div><div style="height:7px;border-radius:4px;margin:11px 0 7px;background:linear-gradient(90deg,#4ec98a,#d2a64a,#e0594e);position:relative;"><span style="position:absolute;top:-3px;left:'+pct+'%;height:13px;width:3px;border-radius:2px;background:#f0f1f4;box-shadow:0 0 0 2px #1b1f27;"></span></div><div style="margin-bottom:8px;">'+traj+'</div><div style="font-size:10.5px;color:#9a9da6;line-height:1.45;">'+bb.note+'</div></div>';}
+    parts+='</div>';
+  }
+  if(f.tripwires)parts+=sectionTitle('🎯 Tripwires (X to $price = event)')+'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;">'+f.tripwires.map(function(t){return '<div style="background:#1b1f27;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:9px;"><span class="mono" style="font-size:12px;color:#f0f1f4;font-weight:600;min-width:62px;">'+t.label+'</span><span class="mono" style="font-size:11px;color:#e0bd6f;">'+t.level+'</span><span style="font-size:10.5px;color:#9a9da6;margin-left:auto;text-align:right;">'+t.meaning+'</span></div>';}).join('')+'</div>';
+  if(f.flows)parts+=sectionTitle('💧 Flows / Positioning')+'<div style="display:flex;flex-direction:column;gap:6px;margin-bottom:18px;">'+f.flows.map(function(x){return '<div style="font-size:12px;color:#cfd1d6;line-height:1.5;">• '+x+'</div>';}).join('')+'</div>';
+  if(f.analog)parts+=sectionTitle('📐 Analog (base rate)')+'<div style="background:rgba(224,89,78,.08);border:1px solid rgba(224,89,78,.22);border-radius:11px;padding:12px 14px;margin-bottom:18px;"><div style="font-size:12px;color:#e8c4c0;line-height:1.55;">'+f.analog.text+'</div><div style="font-size:11px;color:#9a8884;margin-top:7px;">'+f.analog.caveat+'</div></div>';
+  if(f.stance)parts+=sectionTitle('🧭 Stance (จุดยืน)')+'<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:18px;"><div style="background:#1b1f27;border-radius:11px;padding:12px;"><div style="font-size:10px;color:#8a8d96;margin-bottom:5px;">ก่อน/สะสม</div><div style="font-size:11.5px;color:#dcdee2;line-height:1.4;">'+f.stance.before+'</div></div><div style="background:#1b1f27;border-radius:11px;padding:12px;"><div style="font-size:10px;color:#8a8d96;margin-bottom:5px;">ที่ trigger</div><div style="font-size:11.5px;color:#dcdee2;line-height:1.4;">'+f.stance.at+'</div></div><div style="background:#1b1f27;border-radius:11px;padding:12px;"><div style="font-size:10px;color:#8a8d96;margin-bottom:5px;">structural</div><div style="font-size:11.5px;color:#dcdee2;line-height:1.4;">'+f.stance.structural+'</div></div></div>';
+  if(f.sections)parts+=f.sections.map(function(s){return sectionTitle(s.h)+'<div style="font-size:12px;color:#c5c7cf;line-height:1.65;margin-bottom:16px;">'+s.body+'</div>';}).join('');
+  parts+='<div style="border-top:1px solid rgba(255,255,255,.08);margin-top:8px;padding-top:14px;" class="mono"><span style="font-size:9.5px;color:#6b6e78;">แหล่ง: '+(f.sources||[]).join(' · ')+'</span></div><div style="margin-top:10px;font-size:9.5px;color:#54565e;">decision-support เท่านั้น ไม่ใช่คำแนะนำซื้อขาย</div>';
+  document.getElementById('fullSheet').innerHTML=
+    '<div style="background:linear-gradient(135deg,rgba(124,108,240,.18),rgba(210,166,74,.10));padding:24px 30px;border-bottom:1px solid rgba(255,255,255,.08);"><div style="display:flex;align-items:flex-start;gap:12px;"><div><div class="brand" style="font-weight:800;font-size:19px;color:#f4f5f7;">'+f.title+'</div><div class="mono" style="font-size:10.5px;color:#9a9da6;margin-top:5px;">'+f.asof+'</div></div><button onclick="closeFull()" style="margin-left:auto;cursor:pointer;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);color:#fff;height:32px;width:32px;border-radius:9px;font-size:16px;">✕</button></div></div>'+
+    '<div style="padding:24px 30px;">'+parts+'</div>';
+  document.getElementById('fullModal').style.display='block';document.body.style.overflow='hidden';
+}
+function sectionTitle(t){return '<div class="brand" style="font-weight:700;font-size:13.5px;color:#e0bd6f;margin:0 0 9px;">'+t+'</div>';}
+function closeFull(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('fullModal').style.display='none';document.body.style.overflow='';}
+
+renderBrief();renderTabs();renderPicks();
+</script>
+</body>
+</html>

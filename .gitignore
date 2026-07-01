@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.DS_Store
+proxy/node_modules
+
+__pycache__/
+.claude/

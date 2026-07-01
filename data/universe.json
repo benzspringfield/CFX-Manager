@@ -1,0 +1,43 @@
+{
+  "_note": "Investable-from-Thailand universe. ทุก pick ของ engine ต้องอยู่ในลิสต์นี้ (investability gate).",
+  "_updated": "2026-07-01",
+  "_verify": {
+    "us": "liquid large/mid-cap + sector ETF — ซื้อตรง US (offshore/DR). ตรวจสภาพคล่องจาก Finviz/yfinance",
+    "hkex": "หุ้น Hong Kong Exchange — ซื้อตรงได้ (โบรกฯ offshore)",
+    "japan_dr": "⚠️ ต้องยืนยันกับลิสต์ DR จริงของ SET (set.or.th → DR/DRx) — ด้านล่างเป็น 'candidate' รอ verify ไม่ใช่ fact",
+    "th": "SET listed — ซื้อตรง"
+  },
+  "us": [
+    { "tk": "XLE", "name": "Energy Select Sector SPDR", "tv": "AMEX:XLE", "sector": "Energy" },
+    { "tk": "XLF", "name": "Financial Select Sector SPDR", "tv": "AMEX:XLF", "sector": "Financials" },
+    { "tk": "IWM", "name": "iShares Russell 2000 (small-cap)", "tv": "AMEX:IWM", "sector": "Small-cap" },
+    { "tk": "GDX", "name": "VanEck Gold Miners", "tv": "AMEX:GDX", "sector": "Gold/Materials" },
+    { "tk": "MSFT", "name": "Microsoft", "tv": "NASDAQ:MSFT", "sector": "Tech/Quality" },
+    { "tk": "UNH", "name": "UnitedHealth", "tv": "NYSE:UNH", "sector": "Healthcare/Defensive" },
+    { "tk": "BRK.B", "name": "Berkshire Hathaway B", "tv": "NYSE:BRK.B", "sector": "Value/Defensive" },
+    { "tk": "NVDA", "name": "NVIDIA", "tv": "NASDAQ:NVDA", "sector": "Tech/Momentum" }
+  ],
+  "hkex": [
+    { "tk": "9988.HK", "name": "Alibaba", "tv": "HKEX:9988", "sector": "Tech/Value" },
+    { "tk": "0700.HK", "name": "Tencent", "tv": "HKEX:700", "sector": "Tech" },
+    { "tk": "0883.HK", "name": "CNOOC", "tv": "HKEX:883", "sector": "Energy" },
+    { "tk": "3690.HK", "name": "Meituan", "tv": "HKEX:3690", "sector": "Consumer/Tech" },
+    { "tk": "2318.HK", "name": "Ping An Insurance", "tv": "HKEX:2318", "sector": "Financials/Value" },
+    { "tk": "1288.HK", "name": "Agricultural Bank of China", "tv": "HKEX:1288", "sector": "Financials" }
+  ],
+  "japan_dr_candidates": [
+    { "tk": "7203.JP", "name": "Toyota Motor", "tv": "TSE:7203", "dr_ticker": "?", "status": "verify-SET-DR" },
+    { "tk": "8058.JP", "name": "Mitsubishi Corp", "tv": "TSE:8058", "dr_ticker": "?", "status": "verify-SET-DR" },
+    { "tk": "8035.JP", "name": "Tokyo Electron", "tv": "TSE:8035", "dr_ticker": "?", "status": "verify-SET-DR" },
+    { "tk": "6758.JP", "name": "Sony Group", "tv": "TSE:6758", "dr_ticker": "?", "status": "verify-SET-DR" }
+  ],
+  "th": [
+    { "tk": "PTTEP", "name": "PTT Exploration & Production", "tv": "SET:PTTEP", "sector": "Energy" },
+    { "tk": "BBL", "name": "Bangkok Bank", "tv": "SET:BBL", "sector": "Financials" },
+    { "tk": "AOT", "name": "Airports of Thailand", "tv": "SET:AOT", "sector": "Transport/Tourism" },
+    { "tk": "TIDLOR", "name": "Ngern Tid Lor", "tv": "SET:TIDLOR", "sector": "Finance/Quality" },
+    { "tk": "GFPT", "name": "GFPT", "tv": "SET:GFPT", "sector": "Food/Value" },
+    { "tk": "KBANK", "name": "Kasikornbank", "tv": "SET:KBANK", "sector": "Financials" },
+    { "tk": "CPALL", "name": "CP All", "tv": "SET:CPALL", "sector": "Consumer/Defensive" }
+  ]
+}

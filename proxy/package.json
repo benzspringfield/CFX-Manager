@@ -1,0 +1,12 @@
+{
+  "name": "meridian-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MERIDIAN FRED/quote CORS proxy (Node or Cloudflare Worker)",
+  "scripts": {
+    "start": "node node-server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

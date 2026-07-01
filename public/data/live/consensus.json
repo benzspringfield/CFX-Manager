@@ -1,0 +1,289 @@
+{
+ "PTTEP": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 21,
+  "b": 14,
+  "h": 6,
+  "s": 1,
+  "tgt": 165.62,
+  "bull": 95.2
+ },
+ "BBL": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 17,
+  "b": 9,
+  "h": 6,
+  "s": 2,
+  "tgt": 182.79,
+  "bull": 88.2
+ },
+ "ADVANC": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 12,
+  "b": 8,
+  "h": 4,
+  "s": 0,
+  "tgt": 395.94,
+  "bull": 100.0
+ },
+ "KBANK": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 14,
+  "b": 13,
+  "h": 1,
+  "s": 0,
+  "tgt": 222.07,
+  "bull": 100.0
+ },
+ "TIDLOR": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 16,
+  "b": 16,
+  "h": 0,
+  "s": 0,
+  "tgt": 23.46,
+  "bull": 100.0
+ },
+ "SCC": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 16,
+  "b": 7,
+  "h": 5,
+  "s": 3,
+  "tgt": 219.06,
+  "bull": 80.0
+ },
+ "AOT": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 19,
+  "b": 15,
+  "h": 4,
+  "s": 0,
+  "tgt": 67.19,
+  "bull": 100.0
+ },
+ "CPALL": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 19,
+  "b": 19,
+  "h": 0,
+  "s": 0,
+  "tgt": 62.22,
+  "bull": 100.0
+ },
+ "GFPT": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Hold",
+  "n": 17,
+  "b": 4,
+  "h": 11,
+  "s": 2,
+  "tgt": 9.84,
+  "bull": 88.2
+ },
+ "PTT": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 18,
+  "b": 14,
+  "h": 4,
+  "s": 0,
+  "tgt": 40.22,
+  "bull": 100.0
+ },
+ "BDMS": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 21,
+  "b": 18,
+  "h": 3,
+  "s": 0,
+  "tgt": 24.64,
+  "bull": 100.0
+ },
+ "CPF": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 19,
+  "b": 14,
+  "h": 5,
+  "s": 0,
+  "tgt": 23.15,
+  "bull": 100.0
+ },
+ "BH": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 20,
+  "b": 17,
+  "h": 2,
+  "s": 1,
+  "tgt": 201.43,
+  "bull": 95.0
+ },
+ "GULF": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 17,
+  "b": 17,
+  "h": 0,
+  "s": 0,
+  "tgt": 73.4,
+  "bull": 100.0
+ },
+ "TRUE": {
+  "src": "st",
+  "cur": "฿",
+  "rating": "Buy",
+  "n": 11,
+  "b": 11,
+  "h": 0,
+  "s": 0,
+  "tgt": 16.9,
+  "bull": 100.0
+ },
+ "CVX": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 1.74,
+  "tgt": 217.62
+ },
+ "JPM": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 2.04,
+  "tgt": 348.0
+ },
+ "UNH": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 1.6,
+  "tgt": 413.56
+ },
+ "WMT": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 1.51,
+  "tgt": 140.46
+ },
+ "MSFT": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 1.23,
+  "tgt": 559.02
+ },
+ "BRK.B": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 2.38,
+  "tgt": 509.89
+ },
+ "ABBV": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 1.66,
+  "tgt": 256.12
+ },
+ "CAT": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 2.1,
+  "tgt": 979.16
+ },
+ "COST": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 2.03,
+  "tgt": 1094.53
+ },
+ "VLO": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 2.45,
+  "tgt": 269.12
+ },
+ "MO": {
+  "src": "fv",
+  "cur": "$",
+  "recom": 2.88,
+  "tgt": 70.2
+ },
+ "9988.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "0700.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "3690.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "0883.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "0386.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "2318.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "1288.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "0939.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "9618.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "1810.HK": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "8058.JP": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "7203.JP": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "8031.JP": {
+  "src": "yh",
+  "linkOnly": true
+ },
+ "6758.JP": {
+  "src": "yh",
+  "linkOnly": true
+ }
+}

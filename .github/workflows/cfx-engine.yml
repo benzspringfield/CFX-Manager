@@ -1,0 +1,35 @@
+name: CFX data refresh (consensus + macro)
+
+# รัน engine ดึง Settrade(TH)+Finviz(US)+FRED อัตโนมัติ แล้ว commit public/data/live/*.json
+# สมมติ repo root = โฟลเดอร์ meridian-advisor (push โฟลเดอร์นี้เป็น repo)
+on:
+  schedule:
+    - cron: "0 1 * * 1-5"   # 01:00 UTC = 08:00 ICT จันทร์-ศุกร์ (หลังตลาด US ปิด)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run CFX engine (consensus + macro + facts; FRED ใช้ได้บน Actions)
+        run: python engine/cfx_engine.py
+      - name: Merge live → published artifacts (latest.json + data.js)
+        run: python engine/build_preview.py
+      - name: Commit refreshed data if changed
+        run: |
+          git config user.name  "cfx-bot"
+          git config user.email "cfx-bot@users.noreply.github.com"
+          git add public/data/live/*.json public/data/daily/latest.json data/daily/*.js
+          if git diff --cached --quiet; then
+            echo "no data changes"
+          else
+            git commit -m "chore(engine): refresh data $(date -u +%F)"
+            git push
+          fi
