@@ -1,22 +1,22 @@
 {
- "asof": "2026-07-21 10:09",
+ "asof": "2026-07-22 10:08",
  "scores": {
-  "oil": 82.85,
-  "commodities": 30.32,
-  "SPX": 9.38,
-  "gold": -5.97,
-  "US$": 5.03,
-  "HY": -1.18,
-  "IG": -2.55,
-  "govt": -2.7,
-  "EM": 18.9,
-  "bitcoin": -26.08
+  "oil": 94.03,
+  "commodities": 32.25,
+  "SPX": 9.48,
+  "gold": -4.69,
+  "US$": 5.36,
+  "HY": -1.22,
+  "IG": -3.02,
+  "govt": -2.96,
+  "EM": 18.11,
+  "bitcoin": -26.48
  },
  "tripwires": [
   {
    "label": "MAGS",
    "level": "< 60",
-   "value": 67.13,
+   "value": 66.95,
    "triggered": false,
    "approx": false,
    "meaning": "mega-cap AI นำลง → summer risk-off"
@@ -32,7 +32,7 @@
   {
    "label": "Gold",
    "level": "< 4000",
-   "value": 4043.0,
+   "value": 4098.0,
    "triggered": false,
    "approx": true,
    "meaning": "จุดเข้า ('USD a rent') — ประเมินจาก GLD"
@@ -47,18 +47,18 @@
    "Stagflation"
   ],
   "parts": {
-   "DBC": 30.32,
-   "XLI": 15.05,
-   "XLP": 8.35
+   "DBC": 32.25,
+   "XLI": 14.46,
+   "XLP": 8.46
   }
  },
  "bullBear": {
-  "value": 6.8,
+  "value": 6.9,
   "note": "proxy composite (SPY·HYG·RSP เทียบ 200DMA จาก Finviz) — ไม่ใช่ BofA B&B จริง",
   "parts": {
-   "momentum": 6.94,
-   "credit": -0.78,
-   "breadth": 7.0
+   "momentum": 6.98,
+   "credit": -0.8,
+   "breadth": 7.83
   }
  }
 }
