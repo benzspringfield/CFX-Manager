@@ -179,14 +179,14 @@
  "UNH": {
   "src": "fv",
   "cur": "$",
-  "recom": 1.63,
+  "recom": 1.6,
   "tgt": 481.52
  },
  "WMT": {
   "src": "fv",
   "cur": "$",
-  "recom": 1.56,
-  "tgt": 139.8
+  "recom": 1.53,
+  "tgt": 135.68
  },
  "MSFT": {
   "src": "fv",
@@ -203,7 +203,7 @@
  "ABBV": {
   "src": "fv",
   "cur": "$",
-  "recom": 1.59,
+  "recom": 1.62,
   "tgt": 278.92
  },
  "CAT": {
