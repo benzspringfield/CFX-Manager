@@ -185,8 +185,8 @@
  "WMT": {
   "src": "fv",
   "cur": "$",
-  "recom": 1.51,
-  "tgt": 128.82
+  "recom": 1.5,
+  "tgt": 129.07
  },
  "MSFT": {
   "src": "fv",
@@ -209,7 +209,7 @@
  "CAT": {
   "src": "fv",
   "cur": "$",
-  "recom": 2.1,
+  "recom": 2.13,
   "tgt": 991.21
  },
  "COST": {
