@@ -185,8 +185,8 @@
  "WMT": {
   "src": "fv",
   "cur": "$",
-  "recom": 1.5,
-  "tgt": 129.07
+  "recom": 1.47,
+  "tgt": 129.03
  },
  "MSFT": {
   "src": "fv",
