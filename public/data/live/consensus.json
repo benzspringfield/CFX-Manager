@@ -168,31 +168,31 @@
   "src": "fv",
   "cur": "$",
   "recom": 1.64,
-  "tgt": 228.25
+  "tgt": 228.08
  },
  "JPM": {
   "src": "fv",
   "cur": "$",
-  "recom": 2.03,
-  "tgt": 374.58
+  "recom": 1.97,
+  "tgt": 374.2
  },
  "UNH": {
   "src": "fv",
   "cur": "$",
   "recom": 1.5,
-  "tgt": 477.83
+  "tgt": 477.12
  },
  "WMT": {
   "src": "fv",
   "cur": "$",
-  "recom": 1.52,
-  "tgt": 128.45
+  "recom": 1.48,
+  "tgt": 129.03
  },
  "MSFT": {
   "src": "fv",
   "cur": "$",
   "recom": 1.24,
-  "tgt": 588.4
+  "tgt": 593.2
  },
  "BRK.B": {
   "src": "fv",
@@ -209,7 +209,7 @@
  "CAT": {
   "src": "fv",
   "cur": "$",
-  "recom": 2.03,
+  "recom": 2.0,
   "tgt": 970.4
  },
  "COST": {
