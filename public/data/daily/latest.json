@@ -1,7 +1,7 @@
 {
  "date": "2026-07-01",
  "regime": "Stagflation",
- "bullBear": 6.1,
+ "bullBear": 6.2,
  "regimeTilt": "Cyclicals · Energy · Commodity · Financials · Value",
  "briefAsof": "1 ก.ค. 2026 · 13:20 ICT (auto · Hartnett lens)",
  "briefNote": "แต่ละแท็บ = เฉพาะประเทศนั้น · ชั้น FACT สด (Scores/Regime/Tripwire/B&B proxy) แยกจาก ชั้น OPINION (Hartnett รายสัปดาห์ 25 มิ.ย.) · ตัวเลข B&B/regime เป็น proxy",
@@ -61,7 +61,7 @@
      ]
     },
     "bullBear": {
-     "value": 6.1,
+     "value": 6.2,
      "trajectory": [
       [
        "5มิย",
@@ -72,8 +72,8 @@
        9.1
       ],
       [
-       "10-29",
-       6.1
+       "10-30",
+       6.2
       ]
      ],
      "note": "proxy composite (SPY·HYG·RSP เทียบ 200DMA จาก Finviz) — ไม่ใช่ BofA B&B จริง"
@@ -81,7 +81,7 @@
     "tripwires": [
      {
       "label": "MAGS",
-      "level": "71.26 · เกณฑ์ < 60 · ✓ ปลอดภัย",
+      "level": "69.7 · เกณฑ์ < 60 · ✓ ปลอดภัย",
       "meaning": "mega-cap AI นำลง → summer risk-off"
      },
      {
@@ -96,7 +96,7 @@
      },
      {
       "label": "Gold",
-      "level": "4053.0 · เกณฑ์ < 4000 · ✓ ปลอดภัย",
+      "level": "3999.0 · เกณฑ์ < 4000 · ⚠︎ ถึงแล้ว",
       "meaning": "จุดเข้า ไม่ใช่ยอด"
      }
     ],
@@ -116,8 +116,8 @@
     },
     "sections": [
      {
-      "h": "📊 ข้อมูลตลาดวันนี้ (ดึงสด · as of 2026-10-29 06:52)",
-      "body": "<div style=\"font-size:11px;color:#9a9da6;line-height:1.6;margin-bottom:10px;\">ผลตอบแทนตั้งแต่ต้นปี (YTD) ต่อกลุ่มสินทรัพย์ — <b style=\"color:#cbb890;\">ดึงสด</b>วันนี้ (อัปเดต 2026-10-29 06:52), แยกจาก<b>บทวิเคราะห์ Hartnett รายสัปดาห์</b>ด้านล่าง:</div><div style=\"display:flex;flex-wrap:wrap;\"><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">น้ำมัน</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+140.8%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">สินค้าโภคภัณฑ์</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+51.1%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">S&P 500</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+13.3%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ทอง</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-5.8%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ดอลลาร์</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+7.5%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">หุ้นกู้ HY</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-3.8%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">หุ้นกู้ IG</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-5.5%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">พันธบัตร</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-5.5%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ตลาดเกิดใหม่</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+16.1%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">บิตคอยน์</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-10.5%</span></span></div><div style=\"margin-top:6px;\"><div style=\"display:flex;gap:9px;align-items:center;background:#14171e;border-radius:8px;padding:7px 11px;margin-bottom:5px;\"><span class=\"mono\" style=\"font-size:11px;color:#f0f1f4;font-weight:600;min-width:72px;\">MAGS</span><span class=\"mono\" style=\"font-size:11px;color:#cbb890;\">71.26 · เกณฑ์ < 60</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;margin-left:auto;\">✓ ยังปลอดภัย</span></div><div style=\"display:flex;gap:9px;align-items:center;background:#14171e;border-radius:8px;padding:7px 11px;margin-bottom:5px;\"><span class=\"mono\" style=\"font-size:11px;color:#f0f1f4;font-weight:600;min-width:72px;\">30Y UST</span><span class=\"mono\" style=\"font-size:11px;color:#cbb890;\">— · เกณฑ์ > 5</span><span class=\"mono\" style=\"font-size:10.5px;color:#6b6e78;margin-left:auto;\">n/a (ต้องใช้ FRED/Actions)</span></div><div style=\"display:flex;gap:9px;align-items:center;background:#14171e;border-radius:8px;padding:7px 11px;margin-bottom:5px;\"><span class=\"mono\" style=\"font-size:11px;color:#f0f1f4;font-weight:600;min-width:72px;\">Gold</span><span class=\"mono\" style=\"font-size:11px;color:#cbb890;\">4053.0 ~ · เกณฑ์ < 4000</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;margin-left:auto;\">✓ ยังปลอดภัย</span></div></div>"
+      "h": "📊 ข้อมูลตลาดวันนี้ (ดึงสด · as of 2026-10-30 06:55)",
+      "body": "<div style=\"font-size:11px;color:#9a9da6;line-height:1.6;margin-bottom:10px;\">ผลตอบแทนตั้งแต่ต้นปี (YTD) ต่อกลุ่มสินทรัพย์ — <b style=\"color:#cbb890;\">ดึงสด</b>วันนี้ (อัปเดต 2026-10-30 06:55), แยกจาก<b>บทวิเคราะห์ Hartnett รายสัปดาห์</b>ด้านล่าง:</div><div style=\"display:flex;flex-wrap:wrap;\"><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">น้ำมัน</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+143.2%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">สินค้าโภคภัณฑ์</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+50.8%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">S&P 500</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+12.8%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ทอง</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-7.0%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ดอลลาร์</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+7.4%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">หุ้นกู้ HY</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-3.8%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">หุ้นกู้ IG</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-5.4%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">พันธบัตร</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-5.1%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ตลาดเกิดใหม่</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+14.6%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">บิตคอยน์</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-11.4%</span></span></div><div style=\"margin-top:6px;\"><div style=\"display:flex;gap:9px;align-items:center;background:#14171e;border-radius:8px;padding:7px 11px;margin-bottom:5px;\"><span class=\"mono\" style=\"font-size:11px;color:#f0f1f4;font-weight:600;min-width:72px;\">MAGS</span><span class=\"mono\" style=\"font-size:11px;color:#cbb890;\">69.7 · เกณฑ์ < 60</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;margin-left:auto;\">✓ ยังปลอดภัย</span></div><div style=\"display:flex;gap:9px;align-items:center;background:#14171e;border-radius:8px;padding:7px 11px;margin-bottom:5px;\"><span class=\"mono\" style=\"font-size:11px;color:#f0f1f4;font-weight:600;min-width:72px;\">30Y UST</span><span class=\"mono\" style=\"font-size:11px;color:#cbb890;\">— · เกณฑ์ > 5</span><span class=\"mono\" style=\"font-size:10.5px;color:#6b6e78;margin-left:auto;\">n/a (ต้องใช้ FRED/Actions)</span></div><div style=\"display:flex;gap:9px;align-items:center;background:#14171e;border-radius:8px;padding:7px 11px;margin-bottom:5px;\"><span class=\"mono\" style=\"font-size:11px;color:#f0f1f4;font-weight:600;min-width:72px;\">Gold</span><span class=\"mono\" style=\"font-size:11px;color:#cbb890;\">3999.0 ~ · เกณฑ์ < 4000</span><span class=\"mono\" style=\"font-size:10.5px;color:#e0594e;margin-left:auto;\">⚠︎ ถึงเกณฑ์แล้ว</span></div></div>"
      },
      {
       "h": "🎯 ทำอะไรวันนี้ (US — actionable)",
@@ -171,8 +171,8 @@
     "asof": "อ้างอิง Hartnett (long EM) + Goldman/MS/BlackRock + Damodaran KB",
     "sections": [
      {
-      "h": "📊 EM / จีน วันนี้ (ดึงสด · as of 2026-10-29 06:52)",
-      "body": "<div style=\"font-size:11px;color:#9a9da6;line-height:1.6;margin-bottom:10px;\">ผลตอบแทน YTD ที่เกี่ยวกับธีมจีน+ญี่ปุ่น — <b style=\"color:#cbb890;\">ดึงสด</b> (แยกจากมุมมอง Hartnett ด้านล่าง):</div><div style=\"display:flex;flex-wrap:wrap;\"><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ตลาดเกิดใหม่ (EM)</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+16.1%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">S&P 500 (เทียบ)</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+13.3%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ทอง</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-5.8%</span></span></div>"
+      "h": "📊 EM / จีน วันนี้ (ดึงสด · as of 2026-10-30 06:55)",
+      "body": "<div style=\"font-size:11px;color:#9a9da6;line-height:1.6;margin-bottom:10px;\">ผลตอบแทน YTD ที่เกี่ยวกับธีมจีน+ญี่ปุ่น — <b style=\"color:#cbb890;\">ดึงสด</b> (แยกจากมุมมอง Hartnett ด้านล่าง):</div><div style=\"display:flex;flex-wrap:wrap;\"><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ตลาดเกิดใหม่ (EM)</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+14.6%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">S&P 500 (เทียบ)</span><span class=\"mono\" style=\"font-size:12px;color:#4ec98a;font-weight:600;\">+12.8%</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:10.5px;color:#9a9da6;\">ทอง</span><span class=\"mono\" style=\"font-size:12px;color:#e0594e;font-weight:600;\">-7.0%</span></span></div>"
      },
      {
       "h": "🎯 ทำอะไรวันนี้ (จีน+ญี่ปุ่น — actionable)",
@@ -237,8 +237,8 @@
     "asof": "อ้างอิง Amorn (VI) + SCB EIC/KResearch + Settrade consensus",
     "sections": [
      {
-      "h": "📊 หุ้นไทยวันนี้ (Consensus สด · as of 2026-10-29 06:52)",
-      "body": "<div style=\"font-size:11px;color:#9a9da6;line-height:1.6;margin-bottom:10px;\">Consensus นักวิเคราะห์ไทย (Settrade/IAA) — <b style=\"color:#cbb890;\">ดึงสด</b> 2026-10-29 06:52: จาก 15 ตัว <b style=\"color:#4ec98a;\">Buy 15</b> · Hold 0 — เป้าราคาเฉลี่ยต่อตัวดูได้ในหุ้นรายตัว</div><div style=\"display:flex;flex-wrap:wrap;\"><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:11px;color:#f0f1f4;font-weight:600;\">BBL</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;\">Buy ฿209.56</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:11px;color:#f0f1f4;font-weight:600;\">KBANK</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;\">Buy ฿271.18</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:11px;color:#f0f1f4;font-weight:600;\">TIDLOR</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;\">Buy ฿24.45</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:11px;color:#f0f1f4;font-weight:600;\">AOT</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;\">Buy ฿71.71</span></span></div>"
+      "h": "📊 หุ้นไทยวันนี้ (Consensus สด · as of 2026-10-30 06:55)",
+      "body": "<div style=\"font-size:11px;color:#9a9da6;line-height:1.6;margin-bottom:10px;\">Consensus นักวิเคราะห์ไทย (Settrade/IAA) — <b style=\"color:#cbb890;\">ดึงสด</b> 2026-10-30 06:55: จาก 15 ตัว <b style=\"color:#4ec98a;\">Buy 15</b> · Hold 0 — เป้าราคาเฉลี่ยต่อตัวดูได้ในหุ้นรายตัว</div><div style=\"display:flex;flex-wrap:wrap;\"><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:11px;color:#f0f1f4;font-weight:600;\">BBL</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;\">Buy ฿208.79</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:11px;color:#f0f1f4;font-weight:600;\">KBANK</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;\">Buy ฿271.18</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:11px;color:#f0f1f4;font-weight:600;\">TIDLOR</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;\">Buy ฿24.45</span></span><span style=\"display:inline-flex;gap:6px;align-items:baseline;background:#14171e;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:5px 10px;margin:0 6px 6px 0;\"><span style=\"font-size:11px;color:#f0f1f4;font-weight:600;\">AOT</span><span class=\"mono\" style=\"font-size:10.5px;color:#4ec98a;\">Buy ฿71.71</span></span></div>"
      },
      {
       "h": "🎯 ทำอะไรวันนี้ (ไทย — actionable)",
@@ -2851,11 +2851,11 @@
    "src": "st",
    "cur": "฿",
    "rating": "Buy",
-   "n": 18,
+   "n": 19,
    "b": 15,
-   "h": 3,
+   "h": 4,
    "s": 0,
-   "tgt": 209.56,
+   "tgt": 208.79,
    "bull": 100.0
   },
   "ADVANC": {
@@ -2895,12 +2895,12 @@
    "src": "st",
    "cur": "฿",
    "rating": "Buy",
-   "n": 16,
-   "b": 10,
+   "n": 17,
+   "b": 11,
    "h": 4,
    "s": 2,
-   "tgt": 286.56,
-   "bull": 87.5
+   "tgt": 287.06,
+   "bull": 88.2
   },
   "AOT": {
    "src": "st",
@@ -3011,7 +3011,7 @@
    "src": "fv",
    "cur": "$",
    "recom": 2.0,
-   "tgt": 373.92
+   "tgt": 374.84
   },
   "UNH": {
    "src": "fv",
@@ -3028,8 +3028,8 @@
   "MSFT": {
    "src": "fv",
    "cur": "$",
-   "recom": 1.2,
-   "tgt": 613.34
+   "recom": 1.28,
+   "tgt": 629.52
   },
   "BRK.B": {
    "src": "fv",
@@ -3047,7 +3047,7 @@
    "src": "fv",
    "cur": "$",
    "recom": 2.0,
-   "tgt": 945.24
+   "tgt": 917.48
   },
   "COST": {
    "src": "fv",
@@ -3065,7 +3065,7 @@
    "src": "fv",
    "cur": "$",
    "recom": 2.88,
-   "tgt": 69.9
+   "tgt": 71.8
   },
   "9988.HK": {
    "src": "yh",
@@ -3127,28 +3127,28 @@
  "consensusAsof": "1 ก.ค. 2026 (Settrade/Finviz)",
  "provenance": "verified-first · fact=แหล่งข้อมูลการเงิน_อ้างอิง · opinion=แหล่งบทวิเคราะห์_สถาบันการเงิน · JRT KB (Damodaran/Ilmanen/Schilit/Montier/Taleb)=method เชิงคุณภาพ (ตัวเลขจริงเมื่อ engine ดึงงบ) · tier/rank=conviction เชิงคุณภาพตาม regime · ราคา=EOD framework · decision-support ไม่ใช่คำแนะนำซื้อขาย",
  "macro": {
-  "asof": "2026-10-29"
+  "asof": "2026-10-30"
  },
- "liveAsof": "2026-10-29 06:52",
+ "liveAsof": "2026-10-30 06:55",
  "market": {
-  "asof": "2026-10-29 06:52",
+  "asof": "2026-10-30 06:55",
   "scores": {
-   "oil": 140.85,
-   "commodities": 51.12,
-   "SPX": 13.26,
-   "gold": -5.75,
-   "US$": 7.51,
-   "HY": -3.77,
-   "IG": -5.55,
-   "govt": -5.52,
-   "EM": 16.1,
-   "bitcoin": -10.53
+   "oil": 143.19,
+   "commodities": 50.81,
+   "SPX": 12.82,
+   "gold": -7.0,
+   "US$": 7.44,
+   "HY": -3.78,
+   "IG": -5.42,
+   "govt": -5.11,
+   "EM": 14.64,
+   "bitcoin": -11.43
   },
   "tripwires": [
    {
     "label": "MAGS",
     "level": "< 60",
-    "value": 71.26,
+    "value": 69.7,
     "triggered": false,
     "approx": false,
     "meaning": "mega-cap AI นำลง → summer risk-off"
@@ -3164,8 +3164,8 @@
    {
     "label": "Gold",
     "level": "< 4000",
-    "value": 4053.0,
-    "triggered": false,
+    "value": 3999.0,
+    "triggered": true,
     "approx": true,
     "meaning": "จุดเข้า ('USD a rent') — ประเมินจาก GLD"
    }
@@ -3179,18 +3179,18 @@
     "Stagflation ●"
    ],
    "parts": {
-    "DBC": 51.12,
-    "XLI": 8.62,
-    "XLP": 11.79
+    "DBC": 50.81,
+    "XLI": 9.68,
+    "XLP": 13.52
    }
   },
   "bullBear": {
-   "value": 6.1,
+   "value": 6.2,
    "note": "proxy composite (SPY·HYG·RSP เทียบ 200DMA จาก Finviz) — ไม่ใช่ BofA B&B จริง",
    "parts": {
-    "momentum": 6.06,
-    "credit": -2.48,
-    "breadth": 4.75
+    "momentum": 5.6,
+    "credit": -2.47,
+    "breadth": 5.95
    }
   }
  }
