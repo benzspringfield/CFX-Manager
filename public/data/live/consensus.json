@@ -192,19 +192,19 @@
   "src": "fv",
   "cur": "$",
   "recom": 1.29,
-  "tgt": 633.37
+  "tgt": 635.74
  },
  "BRK.B": {
   "src": "fv",
   "cur": "$",
-  "recom": 2.71,
+  "recom": 2.86,
   "tgt": 549.08
  },
  "ABBV": {
   "src": "fv",
   "cur": "$",
   "recom": 1.62,
-  "tgt": 309.81
+  "tgt": 310.96
  },
  "CAT": {
   "src": "fv",
@@ -215,8 +215,8 @@
  "COST": {
   "src": "fv",
   "cur": "$",
-  "recom": 1.93,
-  "tgt": 1076.0
+  "recom": 1.95,
+  "tgt": 1083.15
  },
  "VLO": {
   "src": "fv",
